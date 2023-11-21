@@ -1,0 +1,65 @@
+.container{
+    background-color: beige;
+}
+
+.hero{
+    height: 500px;
+}
+
+.hero-banner{
+    height: inherit;
+    width: 100%;
+}
+
+
+.place-details{
+    display: flex;
+    
+}
+
+.rates{
+    display: flex;
+}
+
+
+/* CARDS */
+.card-img{
+    height: 250px;
+}
+
+.circle-bg {
+    background-color: rgba(0, 0, 0, 0.7); /* Set your desired background color */
+    width: 36px; /* Adjust the width for the desired size */
+    height: 36px; /* Adjust the height for the desired size */
+    border-radius: 50%; /* Make it circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.card-row{
+    margin-bottom: 15px;
+    /* padding-bottom: 10px; */
+}
+
+.bookmark-icon{
+    color: white;
+}
+
+.card-text{
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.category-text{
+    color: #FF7A00;
+    font-weight: 600;
+}
+
+.custom-title{
+    margin-bottom: 3px;
+    font-weight: 700;
+}
