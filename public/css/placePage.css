@@ -1,5 +1,5 @@
 .container{
-    background-color: beige;
+    /* background-color: beige; */
 }
 
 .hero{
@@ -12,13 +12,107 @@
 }
 
 
+/* DETAILS */
+
+/* .place-name-container-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
 .place-details{
     display: flex;
-    
+}
+
+.save-button-box{
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50px;
+}
+
+.save-button{
+    border-radius: 50px;
+    /* border-style: none; */
+    font-weight: 500;
+
+    padding: 3px 9px;
+}
+
+.share-button{
+    padding: 3px;
+    border-style: none;
+}
+
+.like-button{
+    padding: 3px;
+    border-style: none;
 }
 
 .rates{
     display: flex;
+}
+
+/* REVIEW */
+.review-head{
+    display: flex;
+    align-items: center;
+}
+
+h5{
+    margin-bottom: 0;
+}
+
+.sort-drop{
+    
+}
+
+.sort-button{
+    border-style: none;
+    padding: 4px 8px 0px 8px;
+}
+
+.add-review-button{
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50px;
+
+    margin-left: auto;
+}
+
+.addReview-button{
+    /* border-style: none; */
+    border-radius: 50px;
+    font-weight: 500;
+
+    padding: 3px 6px;
+}
+
+.review-box{
+    padding: 0 20px;
+}
+
+.rev-user{
+    display: flex;
+}
+
+.rev-user img{
+    border-radius: 180px;
+    width: 42px;
+    height: 42px;
+    margin-right: 5px;
+}
+
+.rev-name-rate p{
+    margin-bottom: 0;
+}
+
+.rev-content{
+    padding-left: 47px;
+}
+
+/* REVIEW FORM */
+.review-form{
+    display: none;
 }
 
 

@@ -18,9 +18,9 @@
             <img src="{{asset('img/cafeImg.jpeg')}}" class="hero-banner" alt="Image">
         </div>
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="place-name-container">
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center place-name-container-top">
                     <div class="name-rating">
                         <h3>Place Name</h3>
                         <div class="rates">
@@ -29,16 +29,20 @@
                                 <i class="far fa-star"></i>
                             </div>
                         </div>
-                        
                     </div>
                     
                     <div class="place-details">
-                        
-                        <button class="btn btn-primary">Save</button>
-                        <button>
-                            <i class="far fa-heart"></i>   
+                        <div class="save-button-box">
+                            <button type="button" class="btn save-button">Save
+                                <i class="far fa-bookmark fa-lg bookmark-icon" style="color: black;"></i>
+                            </button>
+                        </div>
+                        <button type="button" class="btn like-button">
+                            <i class="far fa-heart fa-lg"></i>   
                         </button>
-                        <button class="btn btn-info">Share</button>
+                        <button type="button" class="btn share-button">
+                            <i class="far fa-paper-plane fa-lg" style="color: black;"></i>
+                        </button>
                     </div>
                 </div>
                 <p>Place Address</p>
@@ -50,86 +54,124 @@
             </div>
         </div>
 
-        <div class="container">
-            <h5>Review</h5>
-            <p>Sort</p>
-            <p>Add Review</p>
+        <div class="container review-container">
+            <div class="review-head">
+                <h5>Review</h5>
+                <div class="sort-drop">
+                    <div class="btn-group">
+                        <button class="btn btn-sm dropdown-toggle sort-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Sort
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Newest</a></li>
+                            <li><a class="dropdown-item" href="#">Oldest</a></li>
+                            <li><a class="dropdown-item" href="#">Highest Rating</a></li>
+                            <li><a class="dropdown-item" href="#">Lowest Rating</a></li>
+                        </ul>
+                      </div>
+                </div>
+                <div class="add-review-button">
+                    <button type="button" class="btn addReview-button">
+                        + Add Review
+                    </button>
+                </div>
+            </div>
+            
+            <div class="reviews">
+                <div class="review-box">
+                    <div class="rev-user">
+                        <img src="{{asset('img/cardImage.png')}}" alt="">
+                        <div class="rev-name-rate">
+                            <p>User name</p>
+                            <p>bintang</p>
+                        </div>
+                    </div>
+                    <div class="rev-content">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi quidem ab fuga laborum illum quas esse magni, ut officiis culpa modi error quisquam placeat iure, est magnam vero aperiam dicta?</p>
+                    </div>
+                </div>
+                <hr>    
+            </div>
+            
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn border border-warning border-2 rounded-pill text-primary">
+                    More reviews
+                </button>
+            </div>
 
-            <div class="row">
+        </div>
+    </div>
 
+    <div class="container">
+        <h2>More Places</h2>
+        <div class="row card-row">
+            <div class="col card-col">
+                <div class="card">
+                    <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
+                    <div class="circle-bg">
+                        <i class="far fa-bookmark fa-lg bookmark-icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="row body-row">
+                            <div class="col body-col">
+                                <h5 class="card-title custom-title">Card Title</h5>
+                            </div>
+                            <div class="col-auto">
+                                <span class="ml-1">4</span> <!-- Number of likes -->
+                                <i class="far fa-heart"></i> <!-- Like icon -->
+                            </div>
+                        </div>
+                        <p class="card-text">Place addresses</p>
+                        <h6 class="card-text category-text">Category</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col card-col">
+                <div class="card">
+                    <img src="{{asset('img/cardImage.png')}}" class="card-img" alt="Image">
+                    <div class="circle-bg">
+                        <i class="far fa-bookmark fa-lg bookmark-icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="row body-row">
+                            <div class="col body-col">
+                                <h5 class="card-title custom-title">Card Title</h5>
+                            </div>
+                            <div class="col-auto">
+                                <span class="ml-1">4</span> <!-- Number of likes -->
+                                <i class="far fa-heart"></i> <!-- Like icon -->
+                            </div>
+                        </div>
+                        <p class="card-text">Place addresses</p>
+                        <h6 class="card-text category-text">Category</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col card-col">
+                <div class="card">
+                    <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
+                    <div class="circle-bg">
+                        <i class="far fa-bookmark fa-lg bookmark-icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <div class="row body-row">
+                            <div class="col body-col">
+                                <h5 class="card-title custom-title">Card Title</h5>
+                            </div>
+                            <div class="col-auto">
+                                <span class="ml-1">4</span> <!-- Number of likes -->
+                                <i class="far fa-heart"></i> <!-- Like icon -->
+                            </div>
+                        </div>
+                        <p class="card-text">Place addresses</p>
+                        <h6 class="card-text category-text">Category</h6>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="container">
-            <h2>More Places</h2>
-            <div class="row card-row">
-                <div class="col card-col">
-                    <div class="card">
-                        <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
-                        <div class="circle-bg">
-                            <i class="far fa-bookmark fa-lg bookmark-icon"></i>
-                        </div>
-                        <div class="card-body">
-                            <div class="row body-row">
-                                <div class="col body-col">
-                                    <h5 class="card-title custom-title">Card Title</h5>
-                                </div>
-                                <div class="col-auto">
-                                    <span class="ml-1">4</span> <!-- Number of likes -->
-                                    <i class="far fa-heart"></i> <!-- Like icon -->
-                                </div>
-                            </div>
-                            <p class="card-text">Place addresses</p>
-                            <h6 class="card-text category-text">Category</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col card-col">
-                    <div class="card">
-                        <img src="{{asset('img/cardImage.png')}}" class="card-img" alt="Image">
-                        <div class="circle-bg">
-                            <i class="far fa-bookmark fa-lg bookmark-icon"></i>
-                        </div>
-                        <div class="card-body">
-                            <div class="row body-row">
-                                <div class="col body-col">
-                                    <h5 class="card-title custom-title">Card Title</h5>
-                                </div>
-                                <div class="col-auto">
-                                    <span class="ml-1">4</span> <!-- Number of likes -->
-                                    <i class="far fa-heart"></i> <!-- Like icon -->
-                                </div>
-                            </div>
-                            <p class="card-text">Place addresses</p>
-                            <h6 class="card-text category-text">Category</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col card-col">
-                    <div class="card">
-                        <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
-                        <div class="circle-bg">
-                            <i class="far fa-bookmark fa-lg bookmark-icon"></i>
-                        </div>
-                        <div class="card-body">
-                            <div class="row body-row">
-                                <div class="col body-col">
-                                    <h5 class="card-title custom-title">Card Title</h5>
-                                </div>
-                                <div class="col-auto">
-                                    <span class="ml-1">4</span> <!-- Number of likes -->
-                                    <i class="far fa-heart"></i> <!-- Like icon -->
-                                </div>
-                            </div>
-                            <p class="card-text">Place addresses</p>
-                            <h6 class="card-text category-text">Category</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-        {{-- @section('content') --}}
-        <div class="container">
+        {{-- <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <h2>Reviews</h2>
@@ -151,27 +193,27 @@
             </div>
 
             <div class="row mt-4">
-                {{-- @foreach ($reviews as $review) --}}
+                @foreach ($reviews as $review)
                 <div class="col-md-4">
                     <div class="card">
                         <img src="" class="card-img-top" alt="User Image">
                         <div class="card-body">
-                            {{-- <h5 class="card-title">{{ $review['user_name'] }}</h5> --}}
+                            <h5 class="card-title">{{ $review['user_name'] }}</h5>
                             <h5 class="card-title">Test</h5>
                             <div class="rating">
-                                {{-- @for ($i = 1; $i <= 5; $i++)
+                                @for ($i = 1; $i <= 5; $i++)
                                     @if ($i <= $review['rating'])
                                         <i class="fas fa-star text-warning"></i>
                                     @else
                                         <i class="far fa-star text-warning"></i>
                                     @endif
-                                @endfor --}}
+                                @endfor
                             </div>
-                            {{-- <p class="card-text">{{ $review['review_text'] }}</p> --}}
+                            <p class="card-text">{{ $review['review_text'] }}</p>
                         </div>
                     </div>
                 </div>
-                {{-- @endforeach --}}
+                @endforeach
 
             <div class="row align-items-center">
                 <div class="col">
@@ -186,7 +228,7 @@
                             <li><a class="dropdown-item" href="#">Highest Rating</a></li>
                             <li><a class="dropdown-item" href="#">Lowest Rating</a></li>
                         </ul>
-                    </div> --}}
+                    </div>
                     <div class="dropdown d-inline">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                           Sort By
@@ -206,11 +248,7 @@
             </div>
         
             </div>
-        </div>
-        {{-- @endsection --}}
-        <p>TEST</p>
-        <p>TEST</p>
-        <p>TEST</p>
+        </div> --}}
     </div>
 
 
