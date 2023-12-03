@@ -18,7 +18,7 @@
             <img src="{{asset('img/cafeImg.jpeg')}}" class="hero-banner" alt="Image">
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid py-3">
             <div class="place-name-container">
                 <div class="d-flex justify-content-between align-items-center place-name-container-top">
                     <div class="name-rating">
@@ -71,9 +71,44 @@
                       </div>
                 </div>
                 <div class="add-review-button">
-                    <button type="button" class="btn addReview-button">
+                    {{-- <button type="button" class="btn addReview-button" id="add-review-btn">
+                        + Add Review
+                    </button> --}}
+                    <button onclick="document.getElementById('reviewForm').style.display='block'" style="width:auto;" class="btn addReview-button" id="add-review-btn">
                         + Add Review
                     </button>
+
+                    <div id="reviewForm" class="modal">
+                        <span onclick="document.getElementById('reviewForm').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <form action="" class="modal-content p-3">
+                            <h2 class="text-center">Place Name</h2>
+                            
+                            <div class="rate pt-4 d-flex">
+                                <label for="rating">Rating (between 1 and 5):</label>
+                                <input type="number" id="rating" name="rating" min="1" max="5" style="margin-left: 10px; width: 50px; height: 25px;">
+                            </div>
+                            
+                            <div class="text-box pt-4">
+                                <label for="review">Review:</label>
+                                <textarea class="form-control" name="review" id="review" rows="7" placeholder="Write your review..."></textarea>
+                            </div>
+                            
+                            <div class="reviewFormBtn pt-3">
+                                <button type="button" onclick="document.getElementById('reviewForm').style.display='none'" class="cancelbtn">Cancel</button>
+                                <button type="submit" class="signupbtn">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <script>
+                        var modal = document.getElementById('reviewForm');
+
+                        window.onclick = function(event){
+                            if(event.target == modal){
+                                modal.style.display = "none";
+                            }
+                        }
+                    </script>
                 </div>
             </div>
             
@@ -105,7 +140,7 @@
     <div class="container">
         <h2>More Places</h2>
         <div class="row card-row">
-            <div class="col card-col">
+            <div class="col-4 card-col">
                 <div class="card">
                     <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
                     <div class="circle-bg">
@@ -126,7 +161,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col card-col">
+            {{-- <div class="col-4 card-col">
                 <div class="card">
                     <img src="{{asset('img/cardImage.png')}}" class="card-img" alt="Image">
                     <div class="circle-bg">
@@ -147,7 +182,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col card-col">
+            <div class="col-4 card-col">
                 <div class="card">
                     <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
                     <div class="circle-bg">
@@ -167,88 +202,9 @@
                         <h6 class="card-text category-text">Category</h6>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
-
-        {{-- <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Reviews</h2>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown">
-                            Sort By
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="sortingDropdown">
-                            <li><a class="dropdown-item" href="#">Newest</a></li>
-                            <li><a class="dropdown-item" href="#">Oldest</a></li>
-                            <li><a class="dropdown-item" href="#">Highest Rating</a></li>
-                            <li><a class="dropdown-item" href="#">Lowest Rating</a></li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn btn-primary ms-2">Add Review</a>
-                </div>
-            </div>
-
-            <div class="row mt-4">
-                @foreach ($reviews as $review)
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="" class="card-img-top" alt="User Image">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $review['user_name'] }}</h5>
-                            <h5 class="card-title">Test</h5>
-                            <div class="rating">
-                                @for ($i = 1; $i <= 5; $i++)
-                                    @if ($i <= $review['rating'])
-                                        <i class="fas fa-star text-warning"></i>
-                                    @else
-                                        <i class="far fa-star text-warning"></i>
-                                    @endif
-                                @endfor
-                            </div>
-                            <p class="card-text">{{ $review['review_text'] }}</p>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-
-            <div class="row align-items-center">
-                <div class="col">
-                    <h2 class="d-inline">Reviews</h2>
-                    {{-- <div class="dropdown d-inline">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown">
-                            Sort By
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="sortingDropdown">
-                            <li><a class="dropdown-item" href="#">Newest</a></li>
-                            <li><a class="dropdown-item" href="#">Oldest</a></li>
-                            <li><a class="dropdown-item" href="#">Highest Rating</a></li>
-                            <li><a class="dropdown-item" href="#">Lowest Rating</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown d-inline">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                          Sort By
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Newest</a></li>
-                          <li><a class="dropdown-item" href="#">Oldest</a></li>
-                          <li><a class="dropdown-item" href="#">Highest Rating</a></li>
-                          <li><a class="dropdown-item" href="#">Lowest Rating</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-auto">
-                    <a href="#" class="btn btn-primary">Add Review</a>
-                </div>
-            </div>
-        
-            </div>
-        </div> --}}
     </div>
 
 

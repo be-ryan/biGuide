@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Explore</title>
 
-    {{-- bootstrap --}}
+    {{-- bootstrap css--}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    {{-- bootstrap icon --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     {{-- font awesome library --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{asset('css/explore.css')}}">
@@ -17,12 +19,38 @@
     <div class="container">
         <h1>Explore</h1> 
         <div class="row card-row">
-            <div class="col card-col">
+            @foreach ($places as $item)
+                <div class="col-4 card-col">
+                    <a href="{{asset('place')}}" class="card-link">
+                        <div class="card">
+                            <img src="{{$item->img}}" class="card-img" alt="Image">
+                            <div class="circle-bg">
+                                <a aria-label ="Save" href=""><i class="far fa-bookmark fa-lg bookmark-icon"></i></a>
+                            </div>
+                            <div class="card-body">
+                                <div class="row body-row">
+                                    <div class="col body-col">
+                                        <h5 class="card-title custom-title">{{$item->name}}</h5>
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="ml-1">4</span>
+                                        <i class="far fa-heart"></i> 
+                                    </div>
+                                </div>
+                                <p class="card-text">{{$item->address}}</p>
+                                <h6 class="card-text category-text">{{$item->placeCategory->name}}</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+
+            {{-- <div class="col-4 card-col">
                 <a href="{{asset('place')}}" class="card-link">
                     <div class="card">
                         <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
                         <div class="circle-bg">
-                            <i class="far fa-bookmark fa-lg bookmark-icon"></i>
+                            <a aria-label ="Save" href=""><i class="far fa-bookmark fa-lg bookmark-icon"></i></a>
                         </div>
                         <div class="card-body">
                             <div class="row body-row">
@@ -41,7 +69,7 @@
                 </a>
                 
             </div>
-            <div class="col card-col">
+            <div class="col-4 card-col">
                 <div class="card">
                     <img src="{{asset('img/cardImage.png')}}" class="card-img" alt="Image">
                     <div class="circle-bg">
@@ -62,7 +90,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col card-col">
+            <div class="col-4 card-col">
                 <div class="card">
                     <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
                     <div class="circle-bg">
@@ -82,7 +110,7 @@
                         <h6 class="card-text category-text">Category</h6>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>            
     </div>
     

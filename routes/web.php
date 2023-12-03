@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +20,22 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('explore');
-});
+// Route::get('/', function () {
+//     return view('explore');
+// });
 
 Route::get('/place', function () {
     return view('placePage');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/explore', [PlaceController::class, 'index'])->name('index');
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
+
+Route::post('/register', [RegisterController::class, 'store']);
+
