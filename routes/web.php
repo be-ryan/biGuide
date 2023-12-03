@@ -17,10 +17,6 @@ use App\Http\Controllers\RegisterController;
 */
 
 // Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/', function () {
 //     return view('explore');
 // });
 
@@ -33,9 +29,11 @@ Route::get('/login', function () {
 });
 
 Route::get('/explore', [PlaceController::class, 'index'])->name('index');
+Route::get('/place/{id}', [PlaceController::class, 'detail'])->name('detail');
 
 Route::get('/login', [LoginController::class, 'index']);
-Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 
+Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
 

@@ -22,7 +22,7 @@
             <div class="place-name-container">
                 <div class="d-flex justify-content-between align-items-center place-name-container-top">
                     <div class="name-rating">
-                        <h3>Place Name</h3>
+                        <h3>{{$detail->name}}</h3>
                         <div class="rates">
                             <span class="star-rating">4.5</span>
                             <div class="stars">
@@ -45,12 +45,12 @@
                         </button>
                     </div>
                 </div>
-                <p>Place Address</p>
+                <p>{{$detail->address}}</p>
             </div>
 
             <div class="place-description">
                 <h4>Description</h4>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore voluptatibus, aliquid ratione delectus natus assumenda, sed fugiat distinctio dolore sit aperiam atque animi accusamus, omnis ipsum commodi. Esse, sapiente a!</p>
+                <p>{{$detail->description}}</p>
             </div>
         </div>
 
@@ -161,48 +161,6 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-4 card-col">
-                <div class="card">
-                    <img src="{{asset('img/cardImage.png')}}" class="card-img" alt="Image">
-                    <div class="circle-bg">
-                        <i class="far fa-bookmark fa-lg bookmark-icon"></i>
-                    </div>
-                    <div class="card-body">
-                        <div class="row body-row">
-                            <div class="col body-col">
-                                <h5 class="card-title custom-title">Card Title</h5>
-                            </div>
-                            <div class="col-auto">
-                                <span class="ml-1">4</span> <!-- Number of likes -->
-                                <i class="far fa-heart"></i> <!-- Like icon -->
-                            </div>
-                        </div>
-                        <p class="card-text">Place addresses</p>
-                        <h6 class="card-text category-text">Category</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4 card-col">
-                <div class="card">
-                    <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
-                    <div class="circle-bg">
-                        <i class="far fa-bookmark fa-lg bookmark-icon"></i>
-                    </div>
-                    <div class="card-body">
-                        <div class="row body-row">
-                            <div class="col body-col">
-                                <h5 class="card-title custom-title">Card Title</h5>
-                            </div>
-                            <div class="col-auto">
-                                <span class="ml-1">4</span> <!-- Number of likes -->
-                                <i class="far fa-heart"></i> <!-- Like icon -->
-                            </div>
-                        </div>
-                        <p class="card-text">Place addresses</p>
-                        <h6 class="card-text category-text">Category</h6>
-                    </div>
-                </div>
-            </div> --}}
         </div>
 
     </div>

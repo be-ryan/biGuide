@@ -21,7 +21,7 @@
         <div class="row card-row">
             @foreach ($places as $item)
                 <div class="col-4 card-col">
-                    <a href="{{asset('place')}}" class="card-link">
+                    <a href="{{route('detail', ['id'=>$item->id])}}" class="card-link">
                         <div class="card">
                             <img src="{{$item->img}}" class="card-img" alt="Image">
                             <div class="circle-bg">

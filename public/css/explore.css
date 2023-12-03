@@ -11,6 +11,8 @@
 /* CARDS */
 .card-img{
     height: 300px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .circle-bg {
