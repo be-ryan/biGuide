@@ -16,7 +16,10 @@
 
 </head>
 <body>
-    <div class="container">
+
+    @include('navbar')
+
+    <div class="container" style="margin-top: 20px; padding: 0 29px">
         <h1>Explore</h1> 
         <div class="row card-row">
             @foreach ($places as $item)

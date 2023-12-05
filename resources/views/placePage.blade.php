@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="{{asset('css/placePage.css')}}">
 </head>
 <body>
-    <div class="container">
+
+    @include('navbar')
+
+    <div class="container" style="margin-top: 20px">
         <div class="hero">
             <img src="{{asset('img/cafeImg.jpeg')}}" class="hero-banner" alt="Image">
         </div>

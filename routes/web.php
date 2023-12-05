@@ -20,20 +20,20 @@ use App\Http\Controllers\RegisterController;
 //     return view('explore');
 // });
 
-Route::get('/place', function () {
-    return view('placePage');
-});
+// Route::get('/place', function () {
+//     return view('placePage');
+// });
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
-Route::get('/explore', [PlaceController::class, 'index'])->name('index');
-Route::get('/place/{id}', [PlaceController::class, 'detail'])->name('detail');
-
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
 
+Route::get('/', [PlaceController::class, 'index'])->name('index');
+Route::get('/explore', [PlaceController::class, 'index'])->name('index');
+Route::get('/place/{id}', [PlaceController::class, 'detail'])->name('detail');
