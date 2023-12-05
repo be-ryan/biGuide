@@ -11,5 +11,11 @@ class PlaceController extends Controller
         $places = Place::all();
         return view('explore', compact('places'));
     }
+
+    public function detail($id){
+        $detail = Place::find($id);
+        return view('placePage', compact('detail'));
+    }
+
 }
 

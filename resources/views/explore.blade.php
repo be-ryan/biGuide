@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Explore</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 
     {{-- bootstrap css--}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,14 +14,17 @@
     {{-- font awesome library --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{asset('css/explore.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>
 <body>
-    <div class="container">
-        <h1>Explore</h1> 
-        <div class="row card-row">
+    @include('partials.navbar')
+
+    <div class="container" style="margin: 41px 129px 0 129px;">
+        <h1 style="font-family: 'DM Sans', sans-serif;">Explore</h1> 
+        <div class="row card-row" style="margin: 30px 100px 0 100px; padding-top:20px">
             @foreach ($places as $item)
-                <div class="col-4 card-col">
+                <div class="col-4 card-col" >
                     <a href="{{asset('place')}}" class="card-link">
                         <div class="card">
                             <img src="{{$item->img}}" class="card-img" alt="Image">
@@ -43,6 +47,7 @@
                         </div>
                     </a>
                 </div>
+                <br>
             @endforeach
 
             {{-- <div class="col-4 card-col">
@@ -113,7 +118,9 @@
             </div> --}}
         </div>            
     </div>
-    
+    <br>
+    <br>
+
     <ul class="pagination justify-content-center">
         <li class="page-item"><a class="page-link" href="#">Previous</a></li>
         <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -121,8 +128,10 @@
         <li class="page-item"><a class="page-link" href="#">3</a></li>
         <li class="page-item"><a class="page-link" href="#">Next</a></li>
     </ul>
+    <br>
     
-    
+    @include('partials.footer')
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

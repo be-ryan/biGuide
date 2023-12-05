@@ -33,13 +33,15 @@ Route::get('/categories', function () {
 })->name('catpage');
 
 
-Route::get('/place', function () {
-    return view('placePage');
-});
+// Route::get('/place', function () {
+//     return view('placePage');
+// });
 
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/place/{id}', [PlaceController::class, 'detail'])->name('detail');
 
 Route::get('/explore', [PlaceController::class, 'index'])->name('index');
 
