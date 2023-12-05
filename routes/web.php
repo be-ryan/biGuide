@@ -23,6 +23,13 @@ use App\Http\Controllers\RegisterController;
 // Route::get('/place', function () {
 //     return view('placePage');
 // });
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
+Route::get('/categories', function () {
+    return view('catpage');
+})->name('catpage');
 
 // Route::get('/login', function () {
 //     return view('login');
