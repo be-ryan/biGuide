@@ -24,6 +24,15 @@ use App\Http\Controllers\RegisterController;
 //     return view('explore');
 // });
 
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
+Route::get('/categories', function () {
+    return view('catpage');
+})->name('catpage');
+
+
 Route::get('/place', function () {
     return view('placePage');
 });

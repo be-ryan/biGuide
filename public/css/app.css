@@ -1,0 +1,17 @@
+/* app.css */
+
+/* Apply the DM Sans font to the body text */
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Apply the DM Sans font to specific headings */
+h1, h2, h3 {
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Apply the DM Sans font to a specific class */
+.custom-text {
+    font-family: 'DM Sans', sans-serif;
+}
+
