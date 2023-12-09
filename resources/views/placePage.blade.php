@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Place</title>
+@extends('layouts.main')
 
-    {{-- bootstrap --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    {{-- font awesome library --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="{{asset('css/placePage.css')}}">
-</head>
-<body>
+<title>Place | {{$detail->name}}</title>
 
-    @include('navbar')
+<link rel="stylesheet" href="{{asset('css/placePage.css')}}">
 
+@section('content')
     <div class="container" style="margin-top: 20px">
         <div class="hero">
-            <img src="{{asset('img/cafeImg.jpeg')}}" class="hero-banner" alt="Image">
+            <img src="{{$detail->img}}" class="hero-banner" alt="Image">
         </div>
 
         <div class="container-fluid py-3">
@@ -63,7 +52,7 @@
                 <div class="sort-drop">
                     <div class="btn-group">
                         <button class="btn btn-sm dropdown-toggle sort-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Sort
+                        Sort
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Newest</a></li>
@@ -71,7 +60,7 @@
                             <li><a class="dropdown-item" href="#">Highest Rating</a></li>
                             <li><a class="dropdown-item" href="#">Lowest Rating</a></li>
                         </ul>
-                      </div>
+                    </div>
                 </div>
                 <div class="add-review-button">
                     {{-- <button type="button" class="btn addReview-button" id="add-review-btn">
@@ -143,33 +132,35 @@
     <div class="container">
         <h2>More Places</h2>
         <div class="row card-row">
-            <div class="col-4 card-col">
-                <div class="card">
-                    <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
-                    <div class="circle-bg">
-                        <i class="far fa-bookmark fa-lg bookmark-icon"></i>
-                    </div>
-                    <div class="card-body">
-                        <div class="row body-row">
-                            <div class="col body-col">
-                                <h5 class="card-title custom-title">Card Title</h5>
+            @foreach ($shuffledItems as $item)
+                <?php $slug = Str::slug($item->name); ?>
+                <div class="col-md-4 card-col">
+                    <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link">
+                        <div class="card">
+                            <img src="{{$item->img}}" class="card-img" alt="Image">
+                            <div class="circle-bg">
+                                <a aria-label ="Save" href=""><i class="far fa-bookmark fa-lg bookmark-icon"></i></a>
                             </div>
-                            <div class="col-auto">
-                                <span class="ml-1">4</span> <!-- Number of likes -->
-                                <i class="far fa-heart"></i> <!-- Like icon -->
+                            <div class="card-body">
+                                <div class="row body-row">
+                                    <div class="col body-col">
+                                        <h5 class="card-title custom-title">{{$item->name}}</h5>
+                                    </div>
+                                    <div class="col-auto">
+                                        <span class="ml-1">4</span>
+                                        <i class="far fa-heart"></i> 
+                                    </div>
+                                </div>
+                                <p class="card-text">{{$item->address}}</p>
+                                <h6 class="card-text category-text">{{$item->placeCategory->name}}</h6>
                             </div>
                         </div>
-                        <p class="card-text">Place addresses</p>
-                        <h6 class="card-text category-text">Category</h6>
-                    </div>
+                    </a>
                 </div>
-            </div>
+                @if($loop->iteration >= 3) @break @endif
+            @endforeach
+            
         </div>
 
-    </div>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
-</body>
-</html>
+    </div> 
+@endsection

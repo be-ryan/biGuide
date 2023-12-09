@@ -45,10 +45,10 @@ class PlaceSeeder extends Seeder
             ],
             [
                 'place_category_id' => 1,
-                'name' => 'Mixue',
-                'address' => 'Jl. Rw. Belong No.38',
-                'description' => 'Mixue an ice cream shop with lot of different variants and also drinks. A perfect choice to cool yourself in the hot weather! With a cool and comfy place to have a chat or chill with your friends.',
-                'img' => '/img/mixueImg.png',
+                'name' => 'Cal\'s Chicken Bowl',
+                'address' => 'Jl. Rw. Belong No.39',
+                'description' => 'Cal\'s chicken is the place to go if you wanted delicious fried checken without those unwanted batter.',
+                'img' => '/img/calsChicken.png',
                 'created_at' => $now,
                 'updated_at' => $now
             ],

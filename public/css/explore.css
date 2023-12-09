@@ -11,15 +11,15 @@
 /* CARDS */
 .card-img{
     height: 300px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
 }
 
 .circle-bg {
-    background-color: rgba(0, 0, 0, 0.7); /* Set your desired background color */
-    width: 36px; /* Adjust the width for the desired size */
-    height: 36px; /* Adjust the height for the desired size */
-    border-radius: 50%; /* Make it circular */
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,7 +48,7 @@
 }
 
 .custom-title{
-    margin-bottom: 3px;
+    margin-bottom: 3px !important;
     font-weight: 700;
 }
 

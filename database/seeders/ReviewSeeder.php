@@ -25,7 +25,7 @@ class ReviewSeeder extends Seeder
                 'updated_at' => $now
             ],
             [
-                'user_id' => 2,
+                'user_id' => 1,
                 'place_id' => 1,
                 'content' => "Nice place.",
                 'rating' => 3,
