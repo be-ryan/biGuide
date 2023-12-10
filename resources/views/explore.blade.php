@@ -10,7 +10,7 @@
         <div class="row card-row">
             @foreach ($places as $item)
                 <?php $slug = Str::slug($item->name); ?>
-                <div class="col-md-4 card-col">
+                <div class="col-lg-4 card-col">
                     <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link">
                         <div class="card">
                             <img src="{{$item->img}}" class="card-img" alt="Image">

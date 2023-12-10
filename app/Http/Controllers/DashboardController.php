@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Place;
+use App\Models\PlaceCategory;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,10 +14,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
-        return view('dashboard.index', [
-            'places' => Place::all()
-        ]);
+        $places = Place::all();
+        return view('place.index', compact('places'));
+        // return view('dashboard.index', [
+        //     'places' => Place::all()
+        // ]);
     }
 
     /**
@@ -24,7 +26,9 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return view('dashboard.create');
+        return view('place.create', [
+            'categories' => PlaceCategory::all()
+        ]);
     }
 
     /**
@@ -32,7 +36,16 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:100',
+            'place_category_id' => 'required',
+            'address' => 'required',
+            'description' => 'required',
+        ]);
+
+        Place::create($validatedData);
+
+        return redirect('place')->with('success', 'Place has been added');
     }
 
     /**
@@ -48,7 +61,10 @@ class DashboardController extends Controller
      */
     public function edit(Place $place)
     {
-        //
+        return view('place.edit', [
+            'place' => $place,
+            'categories' => PlaceCategory::all(),
+        ]);
     }
 
     /**
@@ -56,7 +72,17 @@ class DashboardController extends Controller
      */
     public function update(Request $request, Place $place)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:100',
+            'place_category_id' => 'required',
+            'address' => 'required',
+            'description' => 'required', 
+        ]);
+
+        Place::where('id', $place->id)
+            ->update($validatedData);
+
+        return redirect()->route('place.index')->with('success', 'Place has been updated.');
     }
 
     /**
@@ -64,6 +90,12 @@ class DashboardController extends Controller
      */
     public function destroy(Place $place)
     {
-        //
+        $place->delete();
+        return redirect()->route('place.index')->with('success', 'Place has been deleted.');
+    }
+
+    public function delete(Place $place){
+        $place->delete();
+        return redirect()->back()->with('success', 'place has been deleted');
     }
 }

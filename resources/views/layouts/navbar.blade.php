@@ -38,7 +38,7 @@
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#">Profile</a></li>
           @if (auth()->user()->name === 'test')
-            <li><a class="dropdown-item {{Request::is('dashboard*') ? 'active' : ''}}" href="/dashboard">Dashboard</a></li>
+            <li><a class="dropdown-item {{Request::is('place*') ? 'active' : ''}}" href="/place">Dashboard</a></li>
           @endif
           <li><hr class="dropdown-divider"></li>
           <li>
