@@ -16,18 +16,8 @@
     <div class="navbar-links align-items-center ms-auto">
       <a href="/" class="{{Request::is('') ? 'active' : ''}}">Home</a>
       <a href="/explore" class="{{Request::is('explore*') ? 'active' : ''}}">Explore</a>
-      <div class="dropdown">
-          <a class="dropdown-toggle" href="#" role="button" id="categoriesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-              Categories
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
-              <li><a class="dropdown-item" href="#">Category 1</a></li>
-              <li><a class="dropdown-item" href="#">Category 2</a></li>
-              <li><a class="dropdown-item" href="#">Category 3</a></li>
-              <li><a class="dropdown-item" href="#">Category 4</a></li>
-          </ul>
-      </div>
-      <a href="#" class="{{Request::is('') ? 'active' : ''}}">About Us</a>  
+      <a href="#" class="{{Request::is('category' ? 'active' : '')}}">Categories</a>
+      <a href="#" class="{{Request::is('about') ? 'active' : ''}}">About Us</a>  
     </div>
 
     @auth
