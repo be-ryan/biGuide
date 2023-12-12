@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function index()
     {
         $places = Place::all();
-        return view('place.index', compact('places'));
+        return view('places.index', compact('places'));
         // return view('dashboard.index', [
         //     'places' => Place::all()
         // ]);
@@ -26,7 +26,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return view('place.create', [
+        return view('places.create', [
             'categories' => PlaceCategory::all()
         ]);
     }
@@ -36,16 +36,27 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+        // ddd($request);
+
         $validatedData = $request->validate([
             'name' => 'required|max:100',
             'place_category_id' => 'required',
             'address' => 'required',
             'description' => 'required',
+            'img' => 'image|file|max:1024',
         ]);
 
-        Place::create($validatedData);
+        if($request->file('img')){
+            $file_name = time().'.'.$request->img->extension();
+            $request->img->move(public_path('img'),$file_name);
 
-        return redirect('place')->with('success', 'Place has been added');
+            $validatedData['img'] = $file_name;
+        }
+        
+        Place::create($validatedData);
+        
+        return redirect('places')->with('success', 'Place has been added');
     }
 
     /**
@@ -61,7 +72,7 @@ class DashboardController extends Controller
      */
     public function edit(Place $place)
     {
-        return view('place.edit', [
+        return view('places.edit', [
             'place' => $place,
             'categories' => PlaceCategory::all(),
         ]);
@@ -76,13 +87,22 @@ class DashboardController extends Controller
             'name' => 'required|max:100',
             'place_category_id' => 'required',
             'address' => 'required',
-            'description' => 'required', 
+            'description' => 'required',
+            'img' => 'image|file|max:1024',
         ]);
+
+        if($request->file('img')){
+            unlink(public_path('img/'.$place->img));
+            $file_name = time().'.'.$request->img->extension();
+            $request->img->move(public_path('img'),$file_name);
+
+            $validatedData['img'] = $file_name;
+        }
 
         Place::where('id', $place->id)
             ->update($validatedData);
 
-        return redirect()->route('place.index')->with('success', 'Place has been updated.');
+        return redirect()->route('places.index')->with('success', 'Place has been updated.');
     }
 
     /**
@@ -90,12 +110,11 @@ class DashboardController extends Controller
      */
     public function destroy(Place $place)
     {
+        unlink(public_path('img/'.$place->img));
         $place->delete();
-        return redirect()->route('place.index')->with('success', 'Place has been deleted.');
+        return redirect()->route('places.index')->with('success', 'Place has been deleted.');
     }
 
-    public function delete(Place $place){
-        $place->delete();
-        return redirect()->back()->with('success', 'place has been deleted');
-    }
+    // other alternative to redirect to previous page
+    // return redirect()->back()->with('success', 'Place has been deleted');
 }

@@ -1,11 +1,10 @@
 @extends('layouts.main')
 
-<title>Admin</title>
+<title>Admin Dashboard</title>
 
 @section('content')
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-3 pt-3 border-bottom">
-            {{-- flex-wrap flex-md=wrap --}}
             <h2>Place Post</h2>
         </div>
 
@@ -16,11 +15,11 @@
         @endif
 
         <div class="table-responsive">
-            <a href="/place/create" class="btn btn-success mb-2">Add Place</a>
+            <a href="{{route('places.create')}}" class="btn btn-success mb-2">Add Place</a>
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
+                        <th scope="col-1">No</th>
                         <th scope="col">Place_id</th>
                         <th scope="col">Name</th>
                         <th scope="col">Category</th>
@@ -39,8 +38,8 @@
                             <td>{{$place->address}}</td>
                             <td>{{$place->created_at->format('d M Y')}}</td>
                             <td>
-                                <a href="{{route('place.edit', $place->id)}}" class="badge bg-warning text-decoration-none"><i class="bi bi-pencil-square"></i> Edit</a>
-                                <form action="{{route('place.destroy', $place->id)}}" method="post" class="d-inline">
+                                <a href="{{route('places.edit', $place->id)}}" class="badge bg-warning text-decoration-none"><i class="bi bi-pencil-square"></i> Edit</a>
+                                <form action="{{route('places.destroy', $place->id)}}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
                                     <button class="badge bg-danger border-0 text-decoration-none" onclick="return confirm('Confirm deletion')">

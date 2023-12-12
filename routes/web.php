@@ -35,5 +35,4 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/explore', [PlaceController::class, 'index'])->name('explore');
 Route::get('/explore/place/{id}/{slug}', [PlaceController::class, 'detail'])->name('detail');
 
-// Route::delete('/dashboard/{id}', [DashboardController::class, 'delete'])->name('dashboard.delete');
-Route::resource('place', DashboardController::class)->middleware('auth');
+Route::resource('places', DashboardController::class)->middleware('auth');

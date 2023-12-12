@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('description');
-            $table->string('img')->default('/img/placeImage.png');
+            $table->string('img')->default('img/placeImage.png');
             $table->timestamps();
         });
     }

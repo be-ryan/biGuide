@@ -21,7 +21,7 @@ class PlaceSeeder extends Seeder
                 'name' => 'Mixue',
                 'address' => 'Jl. Rw. Belong No.35',
                 'description' => 'Mixue an ice cream shop with lot of different variants and also drinks. A perfect choice to cool yourself in the hot weather! With a cool and comfy place to have a chat or chill with your friends.',
-                'img' => '/img/mixueImg.png',
+                'img' => 'mixueImg.png',
                 'created_at' => $now,
                 'updated_at' => $now
             ],
@@ -30,7 +30,7 @@ class PlaceSeeder extends Seeder
                 'name' => 'WishWash',
                 'address' => 'Jl. Rw. Belong No.36',
                 'description' => 'Leave your laundry with WishWash, it\'ll be cleaned like a brand new clothes in just two day!',
-                'img' => '/img/mixueImg.png',
+                'img' => 'mixueImg.png',
                 'created_at' => $now,
                 'updated_at' => $now
             ],
@@ -39,7 +39,7 @@ class PlaceSeeder extends Seeder
                 'name' => 'BarBer',
                 'address' => 'Jl. Rw. Belong No.37',
                 'description' => 'Mixue an ice cream shop with lot of different variants and also drinks. A perfect choice to cool yourself in the hot weather! With a cool and comfy place to have a chat or chill with your friends.',
-                'img' => '/img/mixueImg.png',
+                'img' => 'mixueImg.png',
                 'created_at' => $now,
                 'updated_at' => $now
             ],
@@ -48,7 +48,7 @@ class PlaceSeeder extends Seeder
                 'name' => 'Cal\'s Chicken Bowl',
                 'address' => 'Jl. Rw. Belong No.39',
                 'description' => 'Cal\'s chicken is the place to go if you wanted delicious fried checken without those unwanted batter.',
-                'img' => '/img/calsChicken.png',
+                'img' => 'calsChicken.png',
                 'created_at' => $now,
                 'updated_at' => $now
             ],

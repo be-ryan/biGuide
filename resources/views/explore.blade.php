@@ -13,7 +13,7 @@
                 <div class="col-lg-4 card-col">
                     <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link">
                         <div class="card">
-                            <img src="{{$item->img}}" class="card-img" alt="Image">
+                            <img src="{{asset('img/' . $item->img)}}" class="card-img" alt="Image">
                             <div class="circle-bg">
                                 <a aria-label ="Save" href=""><i class="far fa-bookmark fa-lg bookmark-icon"></i></a>
                             </div>
@@ -34,72 +34,6 @@
                     </a>
                 </div>
             @endforeach
-            {{-- <div class="col-4 card-col">
-                <a href="{{asset('place')}}" class="card-link">
-                    <div class="card">
-                        <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
-                        <div class="circle-bg">
-                            <a aria-label ="Save" href=""><i class="far fa-bookmark fa-lg bookmark-icon"></i></a>
-                        </div>
-                        <div class="card-body">
-                            <div class="row body-row">
-                                <div class="col body-col">
-                                    <h5 class="card-title custom-title">Card Title</h5>
-                                </div>
-                                <div class="col-auto">
-                                    <span class="ml-1">4</span> <!-- Number of likes -->
-                                    <i class="far fa-heart"></i> <!-- Like icon -->
-                                </div>
-                            </div>
-                            <p class="card-text">Place addresses</p>
-                            <h6 class="card-text category-text">Category</h6>
-                        </div>
-                    </div>
-                </a>
-                
-            </div>
-            <div class="col-4 card-col">
-                <div class="card">
-                    <img src="{{asset('img/cardImage.png')}}" class="card-img" alt="Image">
-                    <div class="circle-bg">
-                        <i class="far fa-bookmark fa-lg bookmark-icon"></i>
-                    </div>
-                    <div class="card-body">
-                        <div class="row body-row">
-                            <div class="col body-col">
-                                <h5 class="card-title custom-title">Card Title</h5>
-                            </div>
-                            <div class="col-auto">
-                                <span class="ml-1">4</span> <!-- Number of likes -->
-                                <i class="far fa-heart"></i> <!-- Like icon -->
-                            </div>
-                        </div>
-                        <p class="card-text">Place addresses</p>
-                        <h6 class="card-text category-text">Category</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4 card-col">
-                <div class="card">
-                    <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
-                    <div class="circle-bg">
-                        <i class="far fa-bookmark fa-lg bookmark-icon"></i>
-                    </div>
-                    <div class="card-body">
-                        <div class="row body-row">
-                            <div class="col body-col">
-                                <h5 class="card-title custom-title">Card Title</h5>
-                            </div>
-                            <div class="col-auto">
-                                <span class="ml-1">4</span> <!-- Number of likes -->
-                                <i class="far fa-heart"></i> <!-- Like icon -->
-                            </div>
-                        </div>
-                        <p class="card-text">Place addresses</p>
-                        <h6 class="card-text category-text">Category</h6>
-                    </div>
-                </div>
-            </div> --}}
         </div>            
     </div>
 

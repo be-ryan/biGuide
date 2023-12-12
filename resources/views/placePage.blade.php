@@ -7,7 +7,7 @@
 @section('content')
     <div class="container" style="margin-top: 20px">
         <div class="hero">
-            <img src="{{$detail->img}}" class="hero-banner" alt="Image">
+            <img src="{{asset('img/' . $detail->img)}}" class="hero-banner" alt="Image">
         </div>
 
         <div class="container-fluid py-3">
@@ -137,7 +137,7 @@
                 <div class="col-md-4 card-col">
                     <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link">
                         <div class="card">
-                            <img src="{{$item->img}}" class="card-img" alt="Image">
+                            <img src="{{asset('img/' . $item->img)}}" class="card-img" alt="Image">
                             <div class="circle-bg">
                                 <a aria-label ="Save" href=""><i class="far fa-bookmark fa-lg bookmark-icon"></i></a>
                             </div>
