@@ -10,10 +10,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     {{-- font awesome library --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{asset('css/placePage.css')}}">
+    <link rel="stylesheet" href="{{asset('css/navbar-style.css')}}">
 </head>
 <body>
-    <div class="container">
+
+    @include('partials.navbar')
+
+    <div class="container" style="margin-top: 20px">
         <div class="hero">
             <img src="{{asset('img/cafeImg.jpeg')}}" class="hero-banner" alt="Image">
         </div>
@@ -22,7 +28,7 @@
             <div class="place-name-container">
                 <div class="d-flex justify-content-between align-items-center place-name-container-top">
                     <div class="name-rating">
-                        <h3>Place Name</h3>
+                        <h3>{{$detail->name}}</h3>
                         <div class="rates">
                             <span class="star-rating">4.5</span>
                             <div class="stars">
@@ -45,12 +51,12 @@
                         </button>
                     </div>
                 </div>
-                <p>Place Address</p>
+                <p>{{$detail->address}}</p>
             </div>
 
             <div class="place-description">
                 <h4>Description</h4>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore voluptatibus, aliquid ratione delectus natus assumenda, sed fugiat distinctio dolore sit aperiam atque animi accusamus, omnis ipsum commodi. Esse, sapiente a!</p>
+                <p>{{$detail->description}}</p>
             </div>
         </div>
 
@@ -78,9 +84,13 @@
                         + Add Review
                     </button>
 
+                   
                     <div id="reviewForm" class="modal">
                         <span onclick="document.getElementById('reviewForm').style.display='none'" class="close" title="Close Modal">&times;</span>
-                        <form action="" class="modal-content p-3">
+                        <form action="{{ route('reviews.store', ['id' => $detail->id]) }}" method="post" class="modal-content p-3">
+
+                            @csrf <!-- Add CSRF token -->
+
                             <h2 class="text-center">Place Name</h2>
                             
                             <div class="rate pt-4 d-flex">
@@ -90,7 +100,7 @@
                             
                             <div class="text-box pt-4">
                                 <label for="review">Review:</label>
-                                <textarea class="form-control" name="review" id="review" rows="7" placeholder="Write your review..."></textarea>
+                                <textarea class="form-control" name="content" id="review" rows="7" placeholder="Write your review..."></textarea>
                             </div>
                             
                             <div class="reviewFormBtn pt-3">
@@ -112,29 +122,32 @@
                 </div>
             </div>
             
-            <div class="reviews">
-                <div class="review-box">
-                    <div class="rev-user">
-                        <img src="{{asset('img/cardImage.png')}}" alt="">
-                        <div class="rev-name-rate">
-                            <p>User name</p>
-                            <p>bintang</p>
-                        </div>
-                    </div>
-                    <div class="rev-content">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi quidem ab fuga laborum illum quas esse magni, ut officiis culpa modi error quisquam placeat iure, est magnam vero aperiam dicta?</p>
+           
+    <div class="reviews">
+        @foreach($reviews as $review)
+            <div class="review-box">
+                <div class="rev-user">
+                    <!-- You can customize the user display based on your needs -->
+                    <img src="{{asset('img/cardImage.png')}}" alt="">
+                    <div class="rev-name-rate">
+                        <p>{{$review->user->name}}</p>
+                        <p>bintang: {{$review->rating}}</p>
                     </div>
                 </div>
-                <hr>    
+                <div class="rev-content">
+                    <p>{{$review->content}}</p>
+                </div>
             </div>
-            
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn border border-warning border-2 rounded-pill text-primary">
-                    More reviews
-                </button>
-            </div>
+            <hr>    
+        @endforeach
+    </div>
 
-        </div>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn border border-warning border-2 rounded-pill text-primary">
+            More reviews
+        </button>
+    </div>
+</div>
     </div>
 
     <div class="container">
@@ -161,53 +174,11 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-4 card-col">
-                <div class="card">
-                    <img src="{{asset('img/cardImage.png')}}" class="card-img" alt="Image">
-                    <div class="circle-bg">
-                        <i class="far fa-bookmark fa-lg bookmark-icon"></i>
-                    </div>
-                    <div class="card-body">
-                        <div class="row body-row">
-                            <div class="col body-col">
-                                <h5 class="card-title custom-title">Card Title</h5>
-                            </div>
-                            <div class="col-auto">
-                                <span class="ml-1">4</span> <!-- Number of likes -->
-                                <i class="far fa-heart"></i> <!-- Like icon -->
-                            </div>
-                        </div>
-                        <p class="card-text">Place addresses</p>
-                        <h6 class="card-text category-text">Category</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4 card-col">
-                <div class="card">
-                    <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
-                    <div class="circle-bg">
-                        <i class="far fa-bookmark fa-lg bookmark-icon"></i>
-                    </div>
-                    <div class="card-body">
-                        <div class="row body-row">
-                            <div class="col body-col">
-                                <h5 class="card-title custom-title">Card Title</h5>
-                            </div>
-                            <div class="col-auto">
-                                <span class="ml-1">4</span> <!-- Number of likes -->
-                                <i class="far fa-heart"></i> <!-- Like icon -->
-                            </div>
-                        </div>
-                        <p class="card-text">Place addresses</p>
-                        <h6 class="card-text category-text">Category</h6>
-                    </div>
-                </div>
-            </div> --}}
         </div>
 
     </div>
 
-
+    @include('partials.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
 </body>

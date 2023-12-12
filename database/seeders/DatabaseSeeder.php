@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PlaceCategorySeeder::class,
             PlaceSeeder::class,
+            ReviewSeeder::class,
         ]);
     }
 }

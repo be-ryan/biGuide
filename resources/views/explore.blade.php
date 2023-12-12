@@ -18,14 +18,15 @@
 
 </head>
 <body>
+
     @include('partials.navbar')
 
-    <div class="container" style="margin: 41px 129px 0 129px;">
-        <h1 style="font-family: 'DM Sans', sans-serif;">Explore</h1> 
-        <div class="row card-row" style="margin: 30px 100px 0 100px; padding-top:20px">
+    <div class="container" style="margin-top: 20px; padding: 0 29px">
+        <h1 style="font-weight:bold">Explore</h1> 
+        <div class="row card-row">
             @foreach ($places as $item)
-                <div class="col-4 card-col" >
-                    <a href="{{asset('place')}}" class="card-link">
+                <div class="col-4 card-col">
+                    <a href="{{route('detail', ['id'=>$item->id])}}" class="card-link">
                         <div class="card">
                             <img src="{{$item->img}}" class="card-img" alt="Image">
                             <div class="circle-bg">
@@ -129,7 +130,7 @@
         <li class="page-item"><a class="page-link" href="#">Next</a></li>
     </ul>
     <br>
-    
+
     @include('partials.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

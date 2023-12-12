@@ -42,7 +42,7 @@
     <div class="signin-container">
       <div class="avatar">
         <!-- avatar -->
-        <img src="{{ asset('img/avatar_account.png') }}" alt="Avatar" class="darken">
+        <img src="{{ asset('img/img.jpg') }}" alt="Avatar" class="darken">
       </div>
       <div class="signin-button">
         <button class="btn btn-signin">Sign In</button>

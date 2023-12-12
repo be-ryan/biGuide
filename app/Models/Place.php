@@ -19,4 +19,12 @@ class Place extends Model
     public function placeCategory(){
         return $this->belongsTo(PlaceCategory::class, 'place_category_id');
     }
+
+    // Place.php model
+        public function reviews()
+        {
+            return $this->hasMany(Review::class);
+        }
+
 }
+
