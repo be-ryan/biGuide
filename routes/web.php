@@ -5,6 +5,7 @@ use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +30,11 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/explore', [PlaceController::class, 'index'])->name('explore');
 Route::get('/explore/place/{id}/{slug}', [PlaceController::class, 'detail'])->name('detail');
 
 Route::resource('places', DashboardController::class)->middleware('auth');
+Route::resource('users', UserController::class)->middleware('auth');

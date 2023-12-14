@@ -23,11 +23,12 @@
     @auth
       <div class="nav-item dropdown ms-auto">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="{{asset('profileImg/defaultProfile.jpg')}}" alt="" class="rounded-circle" style="width: 32px; height: 32px;">
           Let's explore, {{auth()->user()->name}}
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          @if (auth()->user()->name === 'test')
+          <li><a class="dropdown-item {{Request::is('users*') ? 'active' : ''}}" href="{{route('users.show', auth()->user()->id)}}">Profile</a></li>
+          @if (auth()->user()->role === 'admin')
             <li><a class="dropdown-item {{Request::is('place*') ? 'active' : ''}}" href="{{route('places.index')}}">Dashboard</a></li>
           @endif
           <li><hr class="dropdown-divider"></li>
