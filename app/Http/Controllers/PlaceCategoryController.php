@@ -10,6 +10,7 @@ class PlaceCategoryController extends Controller
 {
     public function index(){
         $categories = PlaceCategory::all();
+        // dd($categories);
         return view('catpage',compact('categories'));
     }
 
@@ -19,7 +20,7 @@ class PlaceCategoryController extends Controller
         $places = Place::with('category')->where('place_category_id', $category->id)->get();
         $categories = PlaceCategory::all();
     
-        return view('catpage', compact('category', 'places', 'categories'));
+        return view('catpage', compact('category', 'places','categories'));
     
     }
 

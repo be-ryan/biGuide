@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
-@include('partials.navbar')
+@extends('layouts.main')
+
+@section('content')
 <body class="wrapper">
    
 
@@ -56,7 +58,9 @@
                     <div class="col-4">
                         <a href="{{ route('detail', ['id' => $place->id]) }}" class="card-link">
                             <div class="card mt-4">
-                                <img src="{{$place->img}}" class="card-img" alt="Image">
+                                <img src="{{asset('img/' . $place->img)}}" class="card-img" alt="Image">
+                                {{-- <img src="{{ asset('public/img' . $place->img) }}" class="card-img" alt="Image"> --}}
+
                                 <div class="circle-bg">
                                     <i class="far fa-heart bookmark-icon"></i>
                                 </div>
@@ -93,8 +97,8 @@
     <br>
     <br>
 
-    @include('partials.footer')
-
+    {{-- @include('partials.footer') --}}
+@endsection
     <!--bootstrapjs-->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -1,92 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Place</title>
+@extends('layouts.main')
 
-    {{-- bootstrap --}}
+<head>
+  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    {{-- font awesome library --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,400;9..40,500;9..40,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{asset('css/placePage.css')}}">
-    <link rel="stylesheet" href="{{asset('css/navbar-style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/placePage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbar-style.css') }}">
+    <title>Place | {{ $detail->name }}</title>
 </head>
+
 <body>
 
-    @include('partials.navbar')
+    {{-- @include('partials.navbar') --}}
 
-    <div class="container" style="margin-top: 20px">
-        <div class="hero">
-            <img src="{{asset('img/cafeImg.jpeg')}}" class="hero-banner" alt="Image">
-        </div>
-
-        <div class="container-fluid py-3">
-            <div class="place-name-container">
-                <div class="d-flex justify-content-between align-items-center place-name-container-top">
-                    <div class="name-rating">
-                        <h3>{{$detail->name}}</h3>
-                        <div class="rates">
-                            <span class="star-rating">4.5</span>
-                            <div class="stars">
-                                <i class="far fa-star"></i>
+    @section('content')
+        <div class="container" style="margin-top: 20px">
+            <div class="hero">
+                <img src="{{asset('img/' . $detail->img)}}" class="hero-banner" alt="Image">
+            </div>
+    
+            <div class="container-fluid py-3">
+                <div class="place-name-container">
+                    <div class="d-flex justify-content-between align-items-center place-name-container-top">
+                        <div class="name-rating">
+                            <h3>{{$detail->name}}</h3>
+                            <div class="rates">
+                                <span class="star-rating">4.5</span>
+                                <div class="stars">
+                                    <i class="far fa-star"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="place-details">
-                        <div class="save-button-box">
-                            <button type="button" class="btn save-button">Save
-                                <i class="far fa-bookmark fa-lg bookmark-icon" style="color: black;"></i>
+                        
+                        <div class="place-details">
+                            <div class="save-button-box">
+                                <button type="button" class="btn save-button">Save
+                                    <i class="far fa-bookmark fa-lg bookmark-icon" style="color: black;"></i>
+                                </button>
+                            </div>
+                            <button type="button" class="btn like-button">
+                                <i class="far fa-heart fa-lg"></i>   
+                            </button>
+                            <button type="button" class="btn share-button">
+                                <i class="far fa-paper-plane fa-lg" style="color: black;"></i>
                             </button>
                         </div>
-                        <button type="button" class="btn like-button">
-                            <i class="far fa-heart fa-lg"></i>   
-                        </button>
-                        <button type="button" class="btn share-button">
-                            <i class="far fa-paper-plane fa-lg" style="color: black;"></i>
-                        </button>
                     </div>
+                    <p>{{$detail->address}}</p>
                 </div>
-                <p>{{$detail->address}}</p>
+    
+                <div class="place-description">
+                    <h4>Description</h4>
+                    <p>{{$detail->description}}</p>
+                </div>
             </div>
 
-            <div class="place-description">
-                <h4>Description</h4>
-                <p>{{$detail->description}}</p>
-            </div>
-        </div>
 
-        <div class="container review-container">
-            <div class="review-head">
-                <h5>Review</h5>
-                <div class="sort-drop">
-                    <div class="btn-group">
-                        <button class="btn btn-sm dropdown-toggle sort-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Sort
+            <div class="container review-container">
+                <div class="review-head">
+                    <h5>Review</h5>
+                    <div class="sort-drop">
+                        <div class="btn-group">
+                            <button class="btn btn-sm dropdown-toggle sort-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sort
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Newest</a></li>
+                                <li><a class="dropdown-item" href="#">Oldest</a></li>
+                                <li><a class="dropdown-item" href="#">Highest Rating</a></li>
+                                <li><a class="dropdown-item" href="#">Lowest Rating</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="add-review-button">
+                        <button onclick="document.getElementById('reviewForm').style.display='block'" style="width:auto;" class="btn addReview-button" id="add-review-btn">
+                            + Add Review
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Newest</a></li>
-                            <li><a class="dropdown-item" href="#">Oldest</a></li>
-                            <li><a class="dropdown-item" href="#">Highest Rating</a></li>
-                            <li><a class="dropdown-item" href="#">Lowest Rating</a></li>
-                        </ul>
-                      </div>
-                </div>
-                <div class="add-review-button">
-                    {{-- <button type="button" class="btn addReview-button" id="add-review-btn">
-                        + Add Review
-                    </button> --}}
-                    <button onclick="document.getElementById('reviewForm').style.display='block'" style="width:auto;" class="btn addReview-button" id="add-review-btn">
-                        + Add Review
-                    </button>
+                        {{-- <button onclick="document.getElementById('reviewForm').style.display='block'" style="width:auto;"
+                            class="btn addReview-button" id="add-review-btn">+ Add Review</button> --}}
 
-                   
-                    <div id="reviewForm" class="modal">
-                        <span onclick="document.getElementById('reviewForm').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        {{-- Review Form Modal --}}
+                        <div id="reviewForm" class="modal">
+                            <span onclick="document.getElementById('reviewForm').style.display='none'" class="close" title="Close Modal">&times;</span>
                         <form action="{{ route('reviews.store', ['id' => $detail->id]) }}" method="post" class="modal-content p-3">
 
                             @csrf <!-- Add CSRF token -->
@@ -108,23 +106,23 @@
                                 <button type="submit" class="signupbtn">Submit</button>
                             </div>
                         </form>
-                    </div>
+                        </div>
 
-                    <script>
-                        var modal = document.getElementById('reviewForm');
+                        <script>
+                            var modal = document.getElementById('reviewForm');
 
-                        window.onclick = function(event){
-                            if(event.target == modal){
-                                modal.style.display = "none";
+                            window.onclick = function (event) {
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                }
                             }
-                        }
-                    </script>
+                        </script>
+                    </div>
                 </div>
-            </div>
-            
-           
-    <div class="reviews">
-        @foreach($reviews as $review)
+
+                {{-- Your existing reviews section --}}
+                <div class="reviews">
+                    @foreach($reviews as $review)
             <div class="review-box">
                 <div class="rev-user">
                     <!-- You can customize the user display based on your needs -->
@@ -140,46 +138,59 @@
             </div>
             <hr>    
         @endforeach
-    </div>
+                </div>
 
-    <div class="d-flex justify-content-center">
-        <button type="button" class="btn border border-warning border-2 rounded-pill text-primary">
-            More reviews
-        </button>
-    </div>
-</div>
-    </div>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn border border-warning border-2 rounded-pill text-primary">
+                        More reviews
+                    </button>
+                </div>
+            </div>
 
-    <div class="container">
-        <h2>More Places</h2>
-        <div class="row card-row">
-            <div class="col-4 card-col">
-                <div class="card">
-                    <img src="{{asset('img/cafeImg.jpeg')}}" class="card-img" alt="Image">
-                    <div class="circle-bg">
-                        <i class="far fa-bookmark fa-lg bookmark-icon"></i>
-                    </div>
-                    <div class="card-body">
-                        <div class="row body-row">
-                            <div class="col body-col">
-                                <h5 class="card-title custom-title">Card Title</h5>
+            {{-- More Places Section --}}
+            <div class="container">
+                <h2>More Places</h2>
+                <div class="row card-row">
+                    {{-- Your existing more places section --}}
+                    {{-- @php
+                    $shuffledItems = $shuffledItems->shuffle();
+                    @endphp --}}
+                    @foreach ($shuffledItems as $item)
+                    <?php $slug = Str::slug($item->name); ?>
+                    <div class="col-md-4 card-col">
+                        <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link">
+                            <div class="card">
+                                <img src="{{asset('img/' . $item->img)}}" class="card-img" alt="Image">
+                                <div class="circle-bg">
+                                    <a aria-label ="Save" href=""><i class="far fa-bookmark fa-lg bookmark-icon"></i></a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row body-row">
+                                        <div class="col body-col">
+                                            <h5 class="card-title custom-title">{{$item->name}}</h5>
+                                        </div>
+                                        <div class="col-auto">
+                                            <span class="ml-1">4</span>
+                                            <i class="far fa-heart"></i> 
+                                        </div>
+                                    </div>
+                                    <p class="card-text">{{$item->address}}</p>
+                                    <h6 class="card-text category-text">{{$item->placeCategory->name}}</h6>
+                                </div>
                             </div>
-                            <div class="col-auto">
-                                <span class="ml-1">4</span> <!-- Number of likes -->
-                                <i class="far fa-heart"></i> <!-- Like icon -->
-                            </div>
-                        </div>
-                        <p class="card-text">Place addresses</p>
-                        <h6 class="card-text category-text">Category</h6>
+                        </a>
                     </div>
+                    @if($loop->iteration >= 3) @break @endif
+                @endforeach
+                
                 </div>
             </div>
         </div>
+    @endsection
 
-    </div>
+    {{-- @include('partials.footer') --}}
 
-    @include('partials.footer')
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

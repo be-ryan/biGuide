@@ -8,8 +8,8 @@
   border-width: 1px;
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  font-family: 'DM Sans', sans-serif;
 }
-
 
 .bi-part {
   color: orangered;
@@ -50,10 +50,16 @@
   margin-right: 5px;
 }
 
+
 .navbar-links a{
+  text-decoration: none;
   padding: 10px;
   color: black;
   font-weight: 600;
+}
+
+.navbar-links a.active{
+  color: #ffa500;
 }
 
 .signin-container {
@@ -75,7 +81,7 @@
 }
 
 .signin-button {
-  background-color: orange;
+  background-color: #ffa500;
   border: 1px solid black;
   padding: 0px 4px; 
   border-radius: 15px;

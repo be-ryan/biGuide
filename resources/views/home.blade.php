@@ -22,11 +22,12 @@
 
 </head>
 <body>
-    @include('partials.navbar')
-
+    {{-- @include('partials.navbar') --}}
+    @extends('layouts.main')
     
     <link rel="stylesheet" href="{{ asset('css/content-styles.css') }}">
 
+    @section('content')
 
     <div class="row">
         <div class="col" style="margin: 41px 129px 0 129px;">
@@ -154,10 +155,11 @@
     <h1 class="text-center font-weight-bold" style = "color: black">or</h1>
     <h1 class="text-center font-weight-bold" style = "color: black"><a href="#">Find places based on Categories</a></h1>
     
+    @endsection
     
     
-    @include('partials.footer') <!-- Include the footer partial -->
-    
+    {{-- @include('partials.footer') <!-- Include the footer partial -->
+     --}}
     <!-- Include your common JavaScript links here -->
 </body>
 </html>
