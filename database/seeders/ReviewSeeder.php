@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Place;
+use App\Models\Review;
 
 class ReviewSeeder extends Seeder
 {
@@ -15,25 +16,26 @@ class ReviewSeeder extends Seeder
     public function run(): void
     {
         $now = Carbon::now();
-        $reviewList = [
-            [
-                'user_id' => 1,
-                'place_id' => 1,
-                'content' => "A good place for ice cream!",
-                'rating' => 4,
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-            [
-                'user_id' => 1,
-                'place_id' => 1,
-                'content' => "Nice place.",
-                'rating' => 3,
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-        ];
 
-        DB::table('reviews')->insert($reviewList);
+        // Find or create the user and place
+        $user = User::find(1) ?? User::factory()->create();
+        $place = Place::find(1) ?? Place::factory()->create();
+
+        // Create and associate reviews using Eloquent relationships
+        $review1 = $user->reviews()->create([
+            'place_id' => $place->id,
+            'content' => "A good place for ice cream!",
+            'rating' => 4,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
+        $review2 = $user->reviews()->create([
+            'place_id' => $place->id,
+            'content' => "Nice place.",
+            'rating' => 3,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
     }
 }

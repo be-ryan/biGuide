@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="{{ asset('css/navbar-style.css') }}">
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
+
 <nav class="navbar">
   <div class="container-fluid">
     <div class="navbar-brand-container">
@@ -14,9 +15,9 @@
     </div>
     
     <div class="navbar-links align-items-center ms-auto">
-      <a href="/" class="{{Request::is('') ? 'active' : ''}}">Home</a>
+      <a href="/" class="{{Request::is('/') ? 'active' : ''}}">Home</a>
       <a href="/explore" class="{{Request::is('explore*') ? 'active' : ''}}">Explore</a>
-      <a href="#" class="{{Request::is('category' ? 'active' : '')}}">Categories</a>
+      <a href="/categories" class="{{Request::is('categories') ? 'active' : ''}}">Categories</a>
       <a href="#" class="{{Request::is('about') ? 'active' : ''}}">About Us</a>  
     </div>
 
@@ -33,7 +34,7 @@
           @endif
           <li><hr class="dropdown-divider"></li>
           <li>
-            <form action="/logout" method="post">
+            <form action="/logout" class="mb-0" method="post">
               @csrf
               <button type="submit" class="dropdown-item">Logout</button>
             </form>
@@ -46,8 +47,5 @@
       </div>
     @endauth
     
-    {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-      <span class="navbar-toggle-icon"></span>
-    </button> --}}
   </div>
 </nav>

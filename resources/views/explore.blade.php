@@ -6,11 +6,11 @@
 
 @section('content')
     <div class="container" style="margin-top: 20px; padding: 0 29px">
-        <h1>Explore</h1> 
+        <h1 style="font-weight:bold">Explore</h1> 
         <div class="row card-row">
             @foreach ($places as $item)
                 <?php $slug = Str::slug($item->name); ?>
-                <div class="col-lg-4 card-col">
+                <div class="col-lg-4 card-col mb-3">
                     <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link">
                         <div class="card">
                             <img src="{{asset('img/' . $item->img)}}" class="card-img" alt="Image">
@@ -23,7 +23,7 @@
                                         <h5 class="card-title custom-title">{{$item->name}}</h5>
                                     </div>
                                     <div class="col-auto">
-                                        <span class="ml-1">4</span>
+                                        <span class="ml-1">{{round($item->avgRating(), 2)}}</span>
                                         <i class="far fa-heart"></i> 
                                     </div>
                                 </div>
@@ -33,10 +33,11 @@
                         </div>
                     </a>
                 </div>
+                <br>
             @endforeach
         </div>            
     </div>
-
+    
     <ul class="pagination justify-content-center">
         <li class="page-item"><a class="page-link" href="#">Previous</a></li>
         <li class="page-item"><a class="page-link" href="#">1</a></li>

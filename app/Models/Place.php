@@ -19,4 +19,15 @@ class Place extends Model
     public function placeCategory(){
         return $this->belongsTo(PlaceCategory::class, 'place_category_id');
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function AvgRating(){
+        $avgRating = $this->reviews->isEmpty() ? 0 : $this->reviews->avg('rating');
+        return $avgRating;
+    }
 }
+
