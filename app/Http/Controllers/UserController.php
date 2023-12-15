@@ -45,7 +45,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit', ['user' => $user]);
     }
 
     /**
@@ -53,7 +53,41 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        // $validatedData = $request->validate([
+        //     'profileImg' => 'image|file|max:1024',
+        // ]);
+
+        // if($request->file('profileImg')){
+        //     unlink(public_path('profileImg/'.$user->profileImg));
+        //     $file_name = time().'.'.$request->profileImg->extension();
+        //     $request->profileImg->move(public_path('profileImg'),$file_name);
+
+        //     $validatedData['profileImg'] = $file_name;
+        // }
+
+        // User::where('id', $user->id)
+        //     ->update($validatedData);
+
+        $validatedData = $request->validate([
+            'profileImg' => 'image|file|max:1024',
+        ]);
+    
+        if ($request->hasFile('profileImg')) {
+            // If the profile image has been updated, delete the previous image
+            if ($user->profileImg !== 'defaultProfile.jpg') {
+                unlink(public_path('profileImg/' . $user->profileImg));
+            }
+    
+            $file_name = time() . '.' . $request->profileImg->extension();
+            $request->profileImg->move(public_path('profileImg'), $file_name);
+    
+            $validatedData['profileImg'] = $file_name;
+        }
+    
+        // Update the user with the validated data
+        $user->update($validatedData);
+
+        return redirect()->route('users.show', auth()->user()->id)->with('success', 'Profile has been updated.');
     }
 
     /**

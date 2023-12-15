@@ -14,13 +14,17 @@
             </div>
         @endif       
             
-        <div class="">
-            <img src="{{asset('profileImg/'.$user->profileImg)}}" class="rounded-circle" alt="" style="width: 340px; height: 340px;">
-            <h3>Name: {{$user->name}}</h3>
-            <h3>Email: {{$user->email}}</h3>
+        <div class="row">
+            <div class="col-md-4 px-0">
+                <img src="{{asset('profileImg/'.$user->profileImg)}}" class="rounded-circle" alt="" style="width: 340px; height: 340px;">
+            </div>
+            <div class="col">
+                <h3>Name: </h3> <p>{{$user->name}}</p>
+                <h3>Email: {{$user->email}}</h3>
+            </div>
             
-            <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning text-decoration-none fw-bolder"><i class="bi bi-pencil-square"></i> Edit</a>
         </div>
+        <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning text-decoration-none fw-bolder"><i class="bi bi-pencil-square"></i> Edit</a>
 
     </div>
 @endsection

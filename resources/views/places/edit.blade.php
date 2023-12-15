@@ -45,10 +45,10 @@
                 {{-- Should i add this? --}}
                 <div class="mb-3 col-6">
                     <label for="img" class="form-label">Current Image:</label>
-                    <img src="{{asset('img/'. $place->img)}}" alt="" class="form-control">    
+                    <img src="{{asset('img/'. $place->img)}}" alt="" class="form-control" style="height: 300px">    
                 </div>
                 <div class="mb-3 col-6">
-                    <label for="img" class="form-label">Image:</label>
+                    <label for="img" class="form-label">Input new image:</label>
                     <input type="file" class="form-control @error('img') is-invalid @enderror" id="img" name="img" value="{{$place->img}}">
                     @error('img')
                         <div class="invalid-feedback">

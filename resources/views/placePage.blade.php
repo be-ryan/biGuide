@@ -114,7 +114,7 @@
                     <div class="review-box">
                         <div class="rev-user">
                             <!-- You can customize the user display based on your needs -->
-                            <img src="{{asset('img/cardImage.png')}}" alt="">
+                            <img src="{{asset('profileImg/' . $review->user->profileImg)}}" alt="">
                             <div class="rev-name-rate">
                                 <p>{{$review->user->name}}</p>
                                 <div class="d-flex align-items-center">
