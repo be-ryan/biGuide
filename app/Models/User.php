@@ -13,10 +13,6 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
 
-    public function reviews()
-    {
-        return $this->hasMany(Review::class);
-    }
     /**
      * The attributes that are mass assignable.
      *
@@ -26,9 +22,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'profileImg'
+        'profileImg',
+        'phoneNumber',
     ];
-
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -38,7 +35,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    
     /**
      * The attributes that should be cast.
      *
@@ -48,4 +45,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }
