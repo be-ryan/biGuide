@@ -18,7 +18,7 @@
       <a href="/" class="{{Request::is('/') ? 'active' : ''}}">Home</a>
       <a href="/explore" class="{{Request::is('explore*') ? 'active' : ''}}">Explore</a>
       <a href="/categories" class="{{Request::is('categories') ? 'active' : ''}}">Categories</a>
-      <a href="#" class="{{Request::is('about') ? 'active' : ''}}">About Us</a>  
+      <a href="/about" class="{{Request::is('about') ? 'active' : ''}}">About Us</a>  
     </div>
 
     @auth

@@ -35,7 +35,7 @@
             <li><a class="dropdown-item" href="{{ route('catpage', ['id' => 0]) }}">View All</a></li>
         </ul> --}}
     {{-- </div> --}}
-      <a href="#">About Us</a>
+      <a href="/about">About Us</a>
   </div>
   
 

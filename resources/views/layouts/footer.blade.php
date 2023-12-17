@@ -6,7 +6,7 @@
 
     <div class="about-us">
         <h4>ABOUT US</h4>
-        <a href="#">About Bi.Guide</a>
+        <a href="/about">About Bi.Guide</a>
         <a href="#">Contact Us</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms and Conditions</a>
