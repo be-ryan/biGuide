@@ -30,5 +30,16 @@ class PlaceController extends Controller
         $avgRating = $reviews->isEmpty() ? 0 : $reviews->avg('rating');
         return $avgRating;
     }
+
+    public function search(Request $request)
+    {
+    $query = $request->input('query');
+
+    $results = Place::where('name', 'like', '%' . $query . '%')
+                    ->orWhere('address', 'like', '%' . $query . '%')
+                    ->get();
+
+    return view('search_results', compact('results', 'query'));
+    }
 }
 
