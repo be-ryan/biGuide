@@ -43,3 +43,9 @@ Route::resource('users', UserController::class)->middleware('auth');
 Route::post('/places/{id}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
 Route::get('/search', [PlaceController::class, 'search'])->name('search');
+
+Route::get('/search', [PlaceController::class, 'search'])->name('search');
+
+Route::get('/about', function () {
+    return view('aboutPage');
+})->name('about');
