@@ -113,12 +113,11 @@
                 @foreach($reviews as $review)
                     <div class="review-box">
                         <div class="rev-user">
-                            <!-- You can customize the user display based on your needs -->
-                            <img src="{{asset('profileImg/' . $review->user->profileImg)}}" alt="">
+                            <img src="{{asset('profileImg/' . $review->user->profileImg)}}" class="object-fit-cover" alt="">
                             <div class="rev-name-rate">
                                 <p>{{$review->user->name}}</p>
                                 <div class="d-flex align-items-center">
-                                    <p>{{$review->rating}}</p>
+                                    <p>{{$review->rating}}&nbsp;</p>
                                     @for($i=0; $i < $review->rating; $i++)
                                        <i class="far fa-star"></i>
                                     @endfor
@@ -149,7 +148,7 @@
                     <div class="col-md-4 card-col mb-3">
                         <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link">
                             <div class="card">
-                                <img src="{{asset('img/' . $item->img)}}" class="card-img" alt="Image">
+                                <img src="{{asset('img/' . $item->img)}}" class="card-img object-fit-cover" alt="Image">
                                 <div class="circle-bg">
                                     <a aria-label ="Save" href=""><i class="far fa-bookmark fa-lg bookmark-icon"></i></a>
                                 </div>

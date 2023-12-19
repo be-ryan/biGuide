@@ -24,7 +24,7 @@
     @auth
       <div class="nav-item dropdown ms-auto">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="{{asset('profileImg/' . auth()->user()->profileImg)}}" alt="" class="rounded-circle" style="width: 32px; height: 32px;">
+          <img src="{{asset('profileImg/' . auth()->user()->profileImg)}}" alt="" class="rounded-circle object-fit-cover me-1" style="width: 32px; height: 32px;">
           Let's explore, {{auth()->user()->name}}
         </a>
         <ul class="dropdown-menu">

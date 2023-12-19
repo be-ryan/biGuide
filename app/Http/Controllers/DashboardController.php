@@ -110,7 +110,9 @@ class DashboardController extends Controller
      */
     public function destroy(Place $place)
     {
-        unlink(public_path('img/'.$place->img));
+        if($place->img !== 'placeImage.png'){
+            unlink(public_path('img/'.$place->img));
+        }
         $place->delete();
         return redirect()->route('places.index')->with('success', 'Place has been deleted.');
     }

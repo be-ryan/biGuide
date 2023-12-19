@@ -13,7 +13,7 @@
                 <div class="col-lg-4 card-col mb-3">
                     <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link">
                         <div class="card">
-                            <img src="{{asset('img/' . $item->img)}}" class="card-img" alt="Image">
+                            <img src="{{asset('img/' . $item->img)}}" class="card-img object-fit-cover" alt="Image">
                             <div class="circle-bg">
                                 <a aria-label ="Save" href=""><i class="far fa-bookmark fa-lg bookmark-icon"></i></a>
                             </div>

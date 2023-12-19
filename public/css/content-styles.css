@@ -15,18 +15,20 @@ p{
 }
 
 .container-pic-home{
-
     border: 2px black solid;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     float: right;
     margin: 41px 129px 0 129px;
-
 }
 
-.container-pic-home h4,img,p{
+.container-pic-home h4,p{
     margin:8px;
     text-align: center
+}
+
+.container-pic-home.img{
+    margin: 8px;
 }
 
 .container-pic-home img{
