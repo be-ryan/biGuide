@@ -44,8 +44,6 @@ Route::post('/places/{id}/reviews', [ReviewController::class, 'store'])->name('r
 
 Route::get('/search', [PlaceController::class, 'search'])->name('search');
 
-Route::get('/search', [PlaceController::class, 'search'])->name('search');
-
 Route::get('/about', function () {
     return view('aboutPage');
 })->name('about');

@@ -3,7 +3,7 @@
 <title>About</title>
 
 <link rel="stylesheet" href="{{ asset('css/about-styles.css') }}">
-<link rel="icon" href="{{ asset('img/favicon.png') }}">
+{{-- <link rel="icon" href="{{ asset('img/favicon.png') }}"> --}}
 
 @section('content')
 
@@ -78,6 +78,7 @@
                         <h5 class="font-weight-bold">Sign up and we'll send the best deals to you</h5>
                         <input type="text" id="email" name="email" placeholder=" Your email address"><br><br>
                         <a class="btn btn-warning"> SUBSCRIBE </a>
+                        <p>*Sorry this feature is not available yet</p>
                     </div>
                 </div>
             </div>

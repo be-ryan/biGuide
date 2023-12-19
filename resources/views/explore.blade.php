@@ -5,18 +5,18 @@
 <link rel="stylesheet" href="{{asset('css/explore.css')}}">
 
 @section('content')
-    <div class="container" style="margin-top: 20px; padding: 0 29px">
+    <div class="container mb-3" style="margin-top: 20px; padding: 0 29px">
         <h1 style="font-weight:bold">Explore</h1> 
         <div class="row card-row">
             @foreach ($places as $item)
                 <?php $slug = Str::slug($item->name); ?>
                 <div class="col-lg-4 card-col mb-3">
-                    <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link">
+                    <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link text-decoration-none">
                         <div class="card">
                             <img src="{{asset('img/' . $item->img)}}" class="card-img object-fit-cover" alt="Image">
-                            <div class="circle-bg">
+                            {{-- <div class="circle-bg">
                                 <a aria-label ="Save" href=""><i class="far fa-bookmark fa-lg bookmark-icon"></i></a>
-                            </div>
+                            </div> --}}
                             <div class="card-body">
                                 <div class="row body-row">
                                     <div class="col body-col">
@@ -24,7 +24,8 @@
                                     </div>
                                     <div class="col-auto">
                                         <span class="ml-1">{{round($item->avgRating(), 2)}}</span>
-                                        <i class="far fa-heart"></i> 
+                                        <i class="far fa-star"></i>
+                                        {{-- <i class="far fa-heart"></i>  --}}
                                     </div>
                                 </div>
                                 <p class="card-text">{{$item->address}}</p>
@@ -37,12 +38,4 @@
             @endforeach
         </div>            
     </div>
-    
-    <ul class="pagination justify-content-center">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
 @endsection

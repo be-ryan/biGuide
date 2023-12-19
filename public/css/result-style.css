@@ -1,28 +1,40 @@
-.container {
-    margin: 20px 129px 0 129px;
+/* .likes {
+    display: flex;
+    align-items: self-start;
+    right: 10px
 }
 
-.row {
-    margin-top: 20px;
-    max-width: 90%;
-    margin-left: 40px;
-    margin-right: 40px;
-    display: inline-block;
-    flex-direction: wrap;
-    justify-content: flex-start;
+.likes span {
+    margin-right: 4px;
+} */
+
+/* Add a new style for the heart icon */
+/* .col-auto .heart-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    color: white;
+} */
+
+.animasiteks {
+    background: none;
+    -webkit-animation: 0.5s highlight 0.5s 1 normal forwards;
+    animation: 0.5s highlight 0.5s 1 normal forwards;
+    background: linear-gradient(90deg, orangered 50%, rgba(255, 255, 255, 0) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
 }
 
-.col-md-4 {
-    margin-bottom: 20px;
+h1 .animasiteks{
+    color: white;
 }
 
-.card-img-container {
-    position: relative;
-}
-
-img {
-    max-height: 200px;
-    object-fit: cover;
+/* CARDS */
+.card-img{
+    height: 250px;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
 }
 
 .circle-bg {
@@ -38,65 +50,31 @@ img {
     right: 10px;
 }
 
-.bookmark-icon {
+.card-row{
+    margin-bottom: 15px;
+    /* padding-bottom: 10px; */
+}
+
+.bookmark-icon{
     color: white;
 }
 
-.card-text {
+.card-text{
     margin-bottom: 0;
     font-weight: 600;
 }
 
-.custom-title {
-    margin-bottom: 3px;
+.category-text{
+    color: #FF7A00;
+    font-weight: 600;
+}
+
+.custom-title{
+    margin-bottom: 3px !important;
     font-weight: 700;
 }
 
-.card-link {
-    text-decoration: none;
-}
 
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* .likes {
-    display: flex;
-    align-items: self-start;
-    right: 10px
-}
-
-.likes span {
-    margin-right: 4px;
-} */
-
-.col-auto {
-    position: relative; /* Add this line */
-}
-
-/* Add a new style for the heart icon */
-.col-auto .heart-icon {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    color: white;
-}
-
-.animasiteks {
-    background: none;
-    -webkit-animation: 0.5s highlight 0.5s 1 normal forwards;
-    animation: 0.5s highlight 0.5s 1 normal forwards;
-    background: linear-gradient(90deg, orangered 50%, rgba(255, 255, 255, 0) 50%);
-    background-size: 200% 100%;
-    background-position: 100% 0;
-}
-
-h1 .animasiteks{
-    color: white;
-}
 @-webkit-keyframes highlight {
     to {
         background-position: 0 0;

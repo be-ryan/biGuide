@@ -25,17 +25,17 @@
                     </div>
                     
                     <div class="place-details">
-                        <div class="save-button-box">
+                        {{-- <div class="save-button-box">
                             <button type="button" class="btn save-button">Save
                                 <i class="far fa-bookmark fa-lg bookmark-icon" style="color: black;"></i>
                             </button>
-                        </div>
-                        <button type="button" class="btn like-button">
+                        </div> --}}
+                        {{-- <button type="button" class="btn like-button">
                             <i class="far fa-heart fa-lg"></i>   
                         </button>
                         <button type="button" class="btn share-button">
                             <i class="far fa-paper-plane fa-lg" style="color: black;"></i>
-                        </button>
+                        </button> --}}
                     </div>
                 </div>
                 <p>{{$detail->address}}</p>
@@ -132,11 +132,11 @@
                 @endforeach
             </div>
 
-            <div class="d-flex justify-content-center">
+            {{-- <div class="d-flex justify-content-center">
                 <button type="button" class="btn border border-warning border-2 rounded-pill text-primary">
                     More reviews
                 </button>
-            </div>
+            </div> --}}
         </div>
 
         {{-- More Places Section --}}
@@ -146,12 +146,12 @@
                 @foreach ($shuffledItems as $item)
                     <?php $slug = Str::slug($item->name); ?>
                     <div class="col-md-4 card-col mb-3">
-                        <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link">
+                        <a href="{{route('detail', ['id'=>$item->id, 'slug'=>$slug])}}" class="card-link text-decoration-none">
                             <div class="card">
                                 <img src="{{asset('img/' . $item->img)}}" class="card-img object-fit-cover" alt="Image">
-                                <div class="circle-bg">
+                                {{-- <div class="circle-bg">
                                     <a aria-label ="Save" href=""><i class="far fa-bookmark fa-lg bookmark-icon"></i></a>
-                                </div>
+                                </div> --}}
                                 <div class="card-body">
                                     <div class="row body-row">
                                         <div class="col body-col">
@@ -159,7 +159,7 @@
                                         </div>
                                         <div class="col-auto">
                                             <span class="ml-1">{{round($item->avgRating(), 2)}}</span>
-                                            <i class="far fa-heart"></i> 
+                                            <i class="far fa-star"></i> 
                                         </div>
                                     </div>
                                     <p class="card-text">{{$item->address}}</p>

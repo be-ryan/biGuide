@@ -59,7 +59,7 @@ class UserController extends Controller
         ]);
     
         if ($request->hasFile('profileImg')) {
-            // If the profile image has been updated, delete the previous image
+            
             if ($user->profileImg !== 'defaultProfile.jpg') {
                 unlink(public_path('profileImg/' . $user->profileImg));
             }
@@ -69,7 +69,7 @@ class UserController extends Controller
     
             $validatedData['profileImg'] = $file_name;
         }
-        // Update the user with the validated data
+
         $user->update($validatedData);
         // dd($validatedData);
 

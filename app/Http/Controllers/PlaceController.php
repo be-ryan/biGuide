@@ -26,10 +26,10 @@ class PlaceController extends Controller
         return view('placePage', compact('detail','shuffledItems','reviews', 'avgRating'));
     }
 
-    public function getAvgRating($reviews){
-        $avgRating = $reviews->isEmpty() ? 0 : $reviews->avg('rating');
-        return $avgRating;
-    }
+    // public function getAvgRating($reviews){
+    //     $avgRating = $reviews->isEmpty() ? 0 : $reviews->avg('rating');
+    //     return $avgRating;
+    // }
 
     public function search(Request $request)
     {
