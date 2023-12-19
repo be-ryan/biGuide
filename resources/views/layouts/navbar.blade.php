@@ -8,17 +8,21 @@
         <span class="bi-part">Bi</span>
         <span class="guide-part">.Guide</span>
       </a>
-      <div class="input-group">
+      {{-- <div class="input-group">
         <input type="text" placeholder="Search here" class="form-control search-input">
         <button class="btn btn-primary search-button" type="button">🔍</button>
-      </div>
+      </div> --}}
+      <form action="{{ route('search') }}" method="GET" class="input-group">
+        <input type="text" name="query" placeholder="Search here" class="form-control search-input">
+        <button type="submit" class="btn btn-primary search-button">🔍</button>
+    </form>
     </div>
     
     <div class="navbar-links align-items-center ms-auto">
       <a href="/" class="{{Request::is('/') ? 'active' : ''}}">Home</a>
       <a href="/explore" class="{{Request::is('explore*') ? 'active' : ''}}">Explore</a>
       <a href="/categories" class="{{Request::is('categories') ? 'active' : ''}}">Categories</a>
-      <a href="#" class="{{Request::is('about') ? 'active' : ''}}">About Us</a>  
+      <a href="/about" class="{{Request::is('about') ? 'active' : ''}}">About Us</a>  
     </div>
 
     @auth

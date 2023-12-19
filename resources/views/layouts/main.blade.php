@@ -12,8 +12,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     {{-- font awesome library --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    {{-- font google --}}
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,500;9..40,700&display=swap" rel="stylesheet">  
     {{-- layout.main css --}}
     <link rel="stylesheet" href="{{asset('/css/styles.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/app.css')}}">
 </head>
 <body>
 
