@@ -21,9 +21,12 @@ class RegisterController extends Controller
             'password' => 'required|min:6|max:100|confirmed'
         ]);
 
-       User::create($validatedData);
+        
+        // $validatedData['password'] = Hash::make($validatedData['password']); // no need, laravel already auto encrypt password in create()
+        // nevermind needed because have user seeder
+        
+        User::create($validatedData);
 
-    //    $validatedData['password'] => Hash::make($validatedData['password']); // no need, laravel already auto encrypt password in create()
     //    $request->session()->flash('success', 'Registration successful, please login!');
         
        return redirect('/login')->with('success', 'Registration succesful, please login!');
