@@ -92,7 +92,11 @@ class DashboardController extends Controller
         ]);
 
         if($request->file('img')){
-            unlink(public_path('img/'.$place->img));
+
+            if ($place->img !== 'placeImage.png') {
+                unlink(public_path('img/'.$place->img));
+            }
+            
             $file_name = time().'.'.$request->img->extension();
             $request->img->move(public_path('img'),$file_name);
 

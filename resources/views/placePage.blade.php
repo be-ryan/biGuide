@@ -84,18 +84,18 @@
                             <input type="number" id="rating" name="rating" min="1" max="5" style="margin-left: 10px; width: 50px; height: 25px;">
                         </div>
                         
-                        <div class="text-box pt-4">
+                        <div class="text-box pt-4 mb-3">
                             <label for="review">Review:</label>
                             <textarea class="form-control" name="content" id="review" rows="7" placeholder="Write your review..."></textarea>
                         </div>
                         
-                        <div class="reviewFormBtn pt-3">
-                            <button type="button" onclick="document.getElementById('reviewForm').style.display='none'" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="signupbtn">Submit</button>
+                        <div class="reviewFormBtn pt-3 d-flex justify-content-end">
+                            <button type="button" onclick="document.getElementById('reviewForm').style.display='none'" class="btn btn-danger mx-1">Cancel</button>
+                            <button type="submit" class="btn btn-success mx-1">Submit</button>
                         </div>
                     </form>
                     </div>
-
+ 
                     <script>
                         var modal = document.getElementById('reviewForm');
 

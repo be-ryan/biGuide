@@ -59,7 +59,7 @@ class UserController extends Controller
         ]);
     
         if ($request->hasFile('profileImg')) {
-            
+                
             if ($user->profileImg !== 'defaultProfile.jpg') {
                 unlink(public_path('profileImg/' . $user->profileImg));
             }
